@@ -32,7 +32,7 @@ ConnectGaurav is built on a mathematically pristine, V1 enterprise skeleton util
 - **Caching:** Upstash Redis (Serverless Edge Caching)
 - **Global State:** Zustand
 - **Animations:** Framer Motion
-- **Form Validation:** React Hook Form + Zod
+- **Validation:** Zod Schema Validation
 - **Notifications:** Sonner
 
 ---
@@ -58,10 +58,7 @@ For more detailed diagrams and logic boundaries, refer to [`docs/architecture.md
    ```
 
 2. **Environment Variables**
-   Copy the example template and input your secure credentials:
-   ```bash
-   cp .env.example .env.local
-   ```
+   Configure your secure credentials in `.env.local` based on your service providers (Firebase, Upstash Redis).
 
 3. **Start Turbopack Server**
    ```bash

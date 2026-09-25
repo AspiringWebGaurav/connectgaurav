@@ -9,7 +9,7 @@ ConnectGaurav uses a strictly typed environment validation system to ensure secu
 
 ## Validation
 When the app boots, `src/lib/config/env.ts` parses all keys through Zod. 
-If a required key (like `NEXT_PUBLIC_SWITCHYY_KEY` or `FIREBASE_PRIVATE_KEY`) is missing, the application will immediately throw a build/boot error to protect itself.
+If a required key (like `NEXT_PUBLIC_FIREBASE_API_KEY` or `FIREBASE_PRIVATE_KEY`) is missing, the application will immediately throw a build/boot error to protect itself.
 
 ## Deploying to Vercel
 You must manually add these keys to the Vercel Project Settings > Environment Variables dashboard.

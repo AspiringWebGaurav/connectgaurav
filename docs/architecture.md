@@ -26,5 +26,4 @@ All custom backend endpoints reside in `src/app/api/`.
 - **Global State (`Zustand`):** Found in `src/lib/store/useAppStore.ts`. Exclusively handles ultra-fast client-side UI states (like toggling sidebars or modals) without prop-drilling.
 - **Animations:** Powered by `framer-motion` for premium, buttery-smooth interactions.
 
-## 6. External Overlays
-- **Switchyy Link Management:** Handled at the outermost boundary in `src/app/layout.tsx`. Controlled securely via `NEXT_PUBLIC_SWITCHYY_KEY` locally and in Vercel.
+

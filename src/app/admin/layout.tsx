@@ -49,7 +49,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 router.push('/login');
               }
             }
-          } catch (err) {
+          } catch {
             clearTimeout(fallbackTimeout);
             if (isMounted) {
               await signOut();
@@ -120,6 +120,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-zinc-200 flex items-center justify-center text-xs overflow-hidden text-zinc-700">
                 {user?.photoURL ? (
+                  // eslint-disable-next-line @next/next/no-img-element
                   <img src={user.photoURL} alt="Profile" className="w-full h-full object-cover" />
                 ) : (
                   user?.email?.charAt(0).toUpperCase()

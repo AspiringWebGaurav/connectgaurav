@@ -1,8 +1,6 @@
 import { z } from 'zod';
 
 const clientSchema = z.object({
-  NEXT_PUBLIC_SWITCHYY_KEY: z.string().min(1, "Switchyy Key is missing"),
-  NEXT_PUBLIC_SWITCHYY_PROJECT_ID: z.string().min(1, "Switchyy Project ID is missing"),
   NEXT_PUBLIC_FIREBASE_API_KEY: z.string().min(1),
   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: z.string().min(1),
   NEXT_PUBLIC_FIREBASE_PROJECT_ID: z.string().min(1),
@@ -21,8 +19,6 @@ const serverSchema = z.object({
 });
 
 const _clientEnv = clientSchema.parse({
-  NEXT_PUBLIC_SWITCHYY_KEY: process.env.NEXT_PUBLIC_SWITCHYY_KEY,
-  NEXT_PUBLIC_SWITCHYY_PROJECT_ID: process.env.NEXT_PUBLIC_SWITCHYY_PROJECT_ID,
   NEXT_PUBLIC_FIREBASE_API_KEY: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
   NEXT_PUBLIC_FIREBASE_PROJECT_ID: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,

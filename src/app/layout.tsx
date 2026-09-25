@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AuthProvider } from "@/components/providers/AuthProvider";
 import NextTopLoader from 'nextjs-toploader';
-import Script from "next/script";
 import { Toaster } from "sonner";
 import "./globals.css";
 
@@ -31,12 +30,6 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
-        <Script 
-          src={`https://switchyy.eu.cc/switchy.js?key=${process.env.NEXT_PUBLIC_SWITCHYY_KEY}&project=${process.env.NEXT_PUBLIC_SWITCHYY_PROJECT_ID}`} 
-          strategy="beforeInteractive" 
-        />
-      </head>
       <body className="min-h-full flex flex-col bg-white text-zinc-900">
         <NextTopLoader
           color="#F97316"

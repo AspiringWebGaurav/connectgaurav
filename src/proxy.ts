@@ -25,14 +25,5 @@ export function proxy(request: NextRequest) {
 
 // Strictly configure which paths trigger this middleware to save compute resources
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
-  ],
+  matcher: ['/admin/:path*'],
 };

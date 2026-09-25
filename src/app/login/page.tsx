@@ -30,8 +30,9 @@ export default function Login() {
       } else {
         setError("Unauthorized: Superadmin access only.");
       }
-    } catch (err: any) {
-      setError(err.message || "Failed to sign in");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Failed to sign in";
+      setError(message);
     } finally {
       setLoading(false);
     }

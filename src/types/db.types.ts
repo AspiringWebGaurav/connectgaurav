@@ -25,6 +25,6 @@ export interface SystemLogDocument {
   id: string;
   level: 'info' | 'warn' | 'error' | 'critical';
   message: string;
-  metadata: Record<string, any>;
+  metadata: Record<string, unknown>;
   timestamp: Date;
 }
