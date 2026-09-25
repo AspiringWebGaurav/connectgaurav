@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/components/providers/AuthProvider';
 import { LayoutDashboard, Users, Settings, LogOut, Code, Activity, Search } from 'lucide-react';
@@ -12,6 +12,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const { user, loading } = useAuth();
   const router = useRouter();
   const [verifying, setVerifying] = useState(true);
+  const hasVerifiedRef = useRef(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -19,10 +20,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     if (!loading) {
       if (!user) {
         if (isMounted) router.push('/login');
-      } else {
+      } else if (!hasVerifiedRef.current) {
+        hasVerifiedRef.current = true;
         // Fallback: If verification hangs for >10s, force an error state
         const fallbackTimeout = setTimeout(() => {
-          if (isMounted && verifying) {
+          if (isMounted) {
             signOut();
             router.push('/login?error=timeout');
           }
@@ -63,7 +65,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     return () => {
       isMounted = false;
     };
-  }, [user, loading, router, verifying]);
+  }, [user, loading, router]);
 
   if (loading || verifying) {
     return <GlobalLoader />;

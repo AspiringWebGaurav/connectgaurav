@@ -2,9 +2,9 @@
 
 This document outlines the strict architectural boundaries and infrastructure pillars of the ConnectGaurav application (v0.2.0 Skeleton).
 
-## 1. Edge Security & Proxy Layer
-- **`src/proxy.ts` (Next.js Edge Proxy):** The absolute outermost boundary of the application. Requests to secure areas (like `/admin`) are intercepted here at the edge. 
-- Because it runs on Vercel's Edge Network, it provides zero-latency security checks before the Node.js server is even spun up.
+## 1. Authentication & Security Layer
+- **Client-Side Auth Guard (`src/app/admin/layout.tsx`):** Protected routes (like `/admin`) are guarded with direct Firebase Auth verification and server-side token validation via `/api/auth/verify`.
+- Optimized for zero Edge quota consumption on Vercel Hobby plans by eliminating unneeded Edge Middleware invocations.
 
 ## 2. Standardized API Layer
 All custom backend endpoints reside in `src/app/api/`. 

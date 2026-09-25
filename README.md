@@ -41,7 +41,7 @@ ConnectGaurav is built on a mathematically pristine, V1 enterprise skeleton util
 
 This codebase strictly adheres to enterprise isolation principles:
 
-1. **Edge Proxy (`src/proxy.ts`):** All secure routes (e.g., `/admin`) are intercepted at the Edge layer before hitting the server, ensuring zero-latency security checks.
+1. **Security & Authentication Layer (`src/app/admin/layout.tsx`):** Protected routes (e.g., `/admin`) are guarded with direct Firebase Auth verification and server-side token validation via `/api/auth/verify`, optimized for zero Edge quota consumption.
 2. **Standardized APIs (`src/lib/api.ts`):** Every backend route uses strict wrappers to guarantee a mathematically predictable JSON response.
 3. **Database Types (`src/types/db.types.ts`):** Firestore reads and writes are strictly typed using TypeScript interfaces to prevent NoSQL data mutation errors.
 4. **Environment Safety (`src/lib/config/env.ts`):** The application will fatally crash on boot if environment variables fail Zod schema validation, ensuring secrets are never missing in production.

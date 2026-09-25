@@ -1,3 +1,5 @@
+export const dynamic = 'force-static';
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-zinc-50 text-zinc-950 font-sans p-6 text-center">
